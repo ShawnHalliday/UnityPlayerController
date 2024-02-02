@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float kpAir = 0.01f;
     [SerializeField] private float accel = 1.0f;
     [SerializeField] private float friction = 15.0f;
-    [SerializeField] private float jumpValue = 10.0f;
+    [SerializeField] private float jumpValue = 5.0f;
     [SerializeField] private float gravity = 15.0f;
     private CharacterController cc;
     private Vector3 playerVelocity = Vector3.zero;
@@ -67,7 +67,6 @@ public class Movement : MonoBehaviour
             normal = hit.normal;
             playerVelocity.x = Vector3.ProjectOnPlane(new Vector3(playerVelocity.x, 0 ,playerVelocity.z), normal).x;
             playerVelocity.z = Vector3.ProjectOnPlane(new Vector3(playerVelocity.x, 0 ,playerVelocity.z), normal).z;
-            Debug.DrawLine(transform.position, transform.position+Vector3.ProjectOnPlane(new Vector3(playerVelocity.x, 0 ,playerVelocity.z), normal)*3, Color.cyan);
         }
         
     }
